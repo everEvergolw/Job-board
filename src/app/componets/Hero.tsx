@@ -1,5 +1,7 @@
 export default function Hero(){
 
+
+
     return(
         <section className=" container my-16">  
             <h1 className="text-4xl font-bold text-center">

@@ -1,6 +1,11 @@
+import { getSignInUrl, getSignUpUrl, getUser, signOut } from "@workos-inc/authkit-nextjs";
 import Link from "next/link";
 
-export default function Header(){
+export default async function Header(){
+
+  const { user } = await getUser();
+  const signInUrl = await getSignInUrl();
+
 
     return(
         <header > 
@@ -10,10 +15,25 @@ export default function Header(){
 
           <Link href={'/'} className="font-bold text-xl"  >Job Board </Link> 
 
-          <nav className="flex gap-2 *:p-2 *: px-4 *:rounded-md ">
+          <nav className="flex gap-2 ">
 
-          <Link className="bg-gray-200 " href={'/login'}> Login </Link>
-          <Link className="bg-blue-600 text-white" href={'/new-listing'}> Post a job </Link>
+          {!user && (<Link className="rounded-md p-2 px-4 bg-gray-200 " href={signInUrl}> Login </Link>)}
+          {
+            user && ( <form action={async () => {
+              'use server';
+              await signOut();}}> 
+              
+                <button type="submit" className="rounded-md bg-gray-200 p-2 px-4">
+                    Logout
+
+                </button>
+
+
+            </form>)
+
+          }
+          
+          <Link className="rounded-md p-2 px-4 bg-blue-600 text-white" href={'/new-listing'}> Post a job </Link>
 
 
 
