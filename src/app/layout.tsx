@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./componets/ Header";
+import Header from "./componets/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,15 +20,14 @@ export default function RootLayout({
 
       <body className={inter.className}>
 
-       <main className="py-4 px-6 container mx-auto">
         <Header/>
 
         {children}
 
-       </main>
 
       
-
+        <footer className="container py-8 text-gray-500">
+          Job Board &copy; 2024 - All rights reservered</footer>
 
         </body>
     </html>

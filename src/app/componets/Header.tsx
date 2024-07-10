@@ -5,7 +5,7 @@ export default function Header(){
     return(
         <header > 
 
-        <div className=" flex items-center justify-between mx-auto">
+        <div className=" container flex items-center justify-between mx-auto my-4">
 
 
           <Link href={'/'} className="font-bold text-xl"  >Job Board </Link> 
