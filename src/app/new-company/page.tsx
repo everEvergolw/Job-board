@@ -9,7 +9,7 @@ export default async function NewCompanyPage(){
     async function handleNewCompanyFormSubmit(data:FormData){
         'use server';
         if(user){
-
+ 
             await createCompany(data.get('newCompanyName') as string,user?.id);
         
     }
